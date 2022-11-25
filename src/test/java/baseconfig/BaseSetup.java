@@ -11,7 +11,7 @@ public class BaseSetup {
 	@BeforeClass
 	public static void getProperties() throws IOException {
 		prop = new Properties();
-		FileInputStream ins = new FileInputStream(".//src//main//resources//cred.properties");
+		FileInputStream ins = new FileInputStream(".//src//test//resources//cred.properties");
 		prop.load(ins);
 	}
 }
