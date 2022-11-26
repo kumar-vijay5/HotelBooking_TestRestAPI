@@ -6,6 +6,8 @@ import java.io.IOException;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertNotNull;
+
+import org.junit.BeforeClass;
 import org.junit.Test;
 import ReusableMethods.Payloads;
 import ReusableMethods.RequestResponsebuilder;
@@ -14,7 +16,7 @@ import baseconfig.BaseSetup;
 import io.restassured.response.Response;
 
 public class CreateBooking extends BaseSetup {
-	private static int bookingidFromResponse;
+	private static int bookingidFromResponse =0;
 	RequestResponsebuilder rbuilder;
 	public static String getTokenID;
 	private String bookingEndpoint = prop.getProperty("booking")+ "/" + bookingidFromResponse;
@@ -22,7 +24,8 @@ public class CreateBooking extends BaseSetup {
 	public CreateBooking() throws FileNotFoundException {
 		rbuilder = new RequestResponsebuilder();
 	}
-
+	
+	
 	public void getResponse_Postauthorization() {
 		System.out.println("*********Authorize by token Test case***********");
 		Response authorizeCredentialsResponse = given().spec(rbuilder.getTokenIDRequest()).log().all()
@@ -30,7 +33,6 @@ public class CreateBooking extends BaseSetup {
 				.when().post(prop.getProperty("auth"))
 				.then().log().all().extract().response();
 		getTokenID = authorizeCredentialsResponse.jsonPath().get("token");
-		 	
 		assertNotNull(getTokenID);
 	}
 	
@@ -87,6 +89,6 @@ public class CreateBooking extends BaseSetup {
 		System.out.println("*********Delete recent booking Test case***********");
 		Response deletedBooking = given().spec(rbuilder.deleteBookingIdRequest(getTokenID)).log().all()
 				.when().delete(bookingEndpoint)
-				.then().spec(rbuilder.deleteBookingIdResponse()).log().all().assertThat().extract().response();
+				.then().spec(rbuilder.deleteBookingIdResponse()).log().all().extract().response();
 	}
 }
