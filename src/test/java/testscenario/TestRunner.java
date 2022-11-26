@@ -1,4 +1,4 @@
-
+package testscenario;
 import java.io.IOException;
 
 import testscenario.CreateBooking;
