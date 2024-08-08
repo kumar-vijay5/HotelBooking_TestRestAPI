@@ -1,6 +1,6 @@
-testcreateNewBooking(testscenario.TestRunner) OK
-testpartialUpdateBooking(testscenario.TestRunner) OK
-testgetBookingIds(testscenario.TestRunner) OK
-testgetBookingById(testscenario.TestRunner) OK
-testgetBookingByName(testscenario.TestRunner) OK
-testdeleteBooking(testscenario.TestRunner) OK
+testcreateNewBooking(testRun.TestRunner) OK
+testpartialUpdateBooking(testRun.TestRunner) OK
+testgetBookingIds(testRun.TestRunner) OK
+testgetBookingById(testRun.TestRunner) OK
+testgetBookingByName(testRun.TestRunner) OK
+testdeleteBooking(testRun.TestRunner) OK

@@ -1,6 +1,7 @@
-package testscenario;
+package testRun;
 import java.io.IOException;
 
+import org.testng.annotations.Test;
 import testscenario.CreateBooking;
 
 public class TestRunner extends CreateBooking{
@@ -14,4 +15,5 @@ public class TestRunner extends CreateBooking{
 		CreateBooking cb = new CreateBooking();
 		cb.getResponse_Postauthorization();
 	}
+
 }
